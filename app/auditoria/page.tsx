@@ -1,0 +1,1 @@
+import Shell from '@/components/Shell';import AuditLog from '@/components/AuditLog';export default function P(){return <Shell><div className="pageHero"><div><small>ADMINISTRAÇÃO</small><h1>Auditoria</h1><p>Rastreabilidade das ações realizadas no caixa.</p></div></div><AuditLog/></Shell>}

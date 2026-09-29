@@ -1,0 +1,1 @@
+import Shell from '@/components/Shell';import CashFlow from '@/components/CashFlow';export default function P(){return <Shell><div className="cashHero"><div><small>FLUXO DE CAIXA</small><h1>Acompanhe a movimentação<br/>financeira da igreja.</h1></div><blockquote>“CRIAR RAÍZES,<br/>CRESCER E FRUTIFICAR!”</blockquote></div><CashFlow/></Shell>}

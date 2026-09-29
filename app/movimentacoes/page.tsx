@@ -1,0 +1,1 @@
+import Shell from '@/components/Shell';import MovementsManager from '@/components/MovementsManager';export default function P(){return <Shell><div className="pageHero"><div><small>MOVIMENTAÇÕES</small><h1>Movimentações</h1><p>Histórico completo de entradas e saídas em espécie.</p></div></div><MovementsManager/></Shell>}

@@ -1,0 +1,1 @@
+import Shell from '@/components/Shell';import UsersManager from '@/components/UsersManager';export default function P(){return <Shell><div className="pageHero"><div><small>ADMINISTRAÇÃO</small><h1>Usuários</h1><p>Gerencie perfis e permissões de acesso ao sistema.</p></div></div><UsersManager/></Shell>}

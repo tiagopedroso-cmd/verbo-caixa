@@ -1,0 +1,1 @@
+export default function Chart(){let vals=[[38,18],[70,34],[45,24],[82,40],[55,22],[68,31],[49,35],[75,29]];return <div className="chart">{vals.map((v,i)=><div className="bar" key={i}><i style={{height:v[0]+'%'}}/><i style={{height:v[1]+'%'}}/></div>)}</div>}

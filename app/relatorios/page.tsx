@@ -1,0 +1,1 @@
+import Shell from '@/components/Shell';import Reports from '@/components/Reports';export default function P(){return <Shell><div className="pageHero"><div><small>RELATÓRIOS</small><h1>Relatórios</h1><p>Filtre, confira e exporte as movimentações registradas.</p></div></div><Reports/></Shell>}

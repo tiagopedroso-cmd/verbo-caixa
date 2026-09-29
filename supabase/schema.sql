@@ -1,0 +1,10 @@
+create type public.user_role as enum ('admin','tesouraria','operador');
+create type public.movement_type as enum ('entrada','saida');
+create table public.profiles(id uuid primary key references auth.users(id) on delete cascade,nome text not null,role user_role not null default 'operador',ativo boolean not null default true,created_at timestamptz default now());
+create table public.movimentacoes(id bigint generated always as identity primary key,tipo movement_type not null,valor numeric(12,2) not null check(valor>0),descricao text not null,data_movimentacao timestamptz not null default now(),usuario_id uuid not null references public.profiles(id),status text not null default 'ativo',created_at timestamptz default now(),updated_at timestamptz default now());
+create table public.auditoria(id bigint generated always as identity primary key,usuario_id uuid references public.profiles(id),acao text not null,entidade text not null,entidade_id text,dados_anteriores jsonb,dados_novos jsonb,created_at timestamptz default now());
+alter table public.profiles enable row level security;alter table public.movimentacoes enable row level security;alter table public.auditoria enable row level security;
+create policy "authenticated profiles" on public.profiles for select to authenticated using(true);
+create policy "authenticated movements read" on public.movimentacoes for select to authenticated using(true);
+create policy "authenticated movements insert" on public.movimentacoes for insert to authenticated with check(auth.uid()=usuario_id);
+create policy "authenticated audit read" on public.auditoria for select to authenticated using(true);
