@@ -45,7 +45,7 @@ export default function Login() {
         {/* IMAGEM LATERAL */}
         <div className="loginhero">
           <img
-            src="/login-hero.jpg"
+            src="/login-verbo.jpg"
             alt="Igreja Verbo da Vida"
           />
         </div>
