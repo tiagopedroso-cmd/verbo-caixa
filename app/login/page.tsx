@@ -2,7 +2,6 @@
 
 import { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import { createClient } from '@/lib/supabase-client';
 
 export default function Login() {
@@ -84,7 +83,6 @@ export default function Login() {
             {loading ? 'Entrando...' : 'Entrar  →'}
           </button>
 
-          <Link href="/recuperar-senha" className="loginV09Forgot">Esqueceu sua senha?</Link>
         </form>
       </section>
     </main>

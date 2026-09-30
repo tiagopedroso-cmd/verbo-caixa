@@ -10,7 +10,7 @@ export async function POST(req:NextRequest){
     const body=await req.json();const nome=String(body.nome||'').trim(),email=String(body.email||'').trim().toLowerCase(),password=String(body.password||''),role=['admin','tesouraria','operador'].includes(body.role)?body.role:'operador';
     if(!nome||!email||password.length<8)return NextResponse.json({error:'Preencha nome, e-mail e uma senha com pelo menos 8 caracteres.'},{status:400});
     const{data:created,error}=await admin.auth.admin.createUser({email,password,email_confirm:true,user_metadata:{nome}});if(error)return NextResponse.json({error:error.message},{status:400});
-    if(created.user)await admin.from('profiles').upsert({id:created.user.id,nome,role,ativo:true},{onConflict:'id'});
+    if(created.user)await admin.from('profiles').upsert({id:created.user.id,nome,role,ativo:true,must_change_password:true},{onConflict:'id'});
     return NextResponse.json({ok:true});
   }catch{return NextResponse.json({error:'Erro interno ao criar usuário.'},{status:500})}
 }
