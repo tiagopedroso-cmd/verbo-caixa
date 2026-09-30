@@ -1062,3 +1062,15 @@ html,body{max-width:100%;overflow-x:hidden}.brand img{width:150px;height:108px;o
   .loginV09Form h1{font-size:29px!important}
   .loginV09Description{font-size:15px!important}
 }
+
+/* v0.10 — recuperação de senha */
+.loginV10Recovery{min-height:0!important;padding-top:70px!important;padding-bottom:52px!important}
+.loginV10Recovery form,.loginV10Message{display:flex;flex-direction:column;width:100%}
+.loginV10Recovery .loginV09Description{margin-bottom:30px!important}
+.loginV10Recovery .loginV09Forgot{display:block;text-align:center}
+.loginV10Message{text-align:left}
+.loginV10SuccessIcon{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;margin-bottom:24px;background:#e7f7ee;color:#079447;font-size:30px;font-weight:800}
+.loginV10ButtonLink{display:flex;align-items:center;justify-content:center;text-decoration:none}
+.loginV10Hint{margin:14px 0 0;color:rgba(255,255,255,.72);font-size:13px;text-align:center}
+@media(max-width:850px){.loginV10Recovery{padding-top:38px!important;padding-bottom:32px!important}}
+@media(max-width:560px){.loginV10Recovery{padding-top:30px!important;padding-bottom:26px!important}.loginV10SuccessIcon{width:48px;height:48px;font-size:25px;margin-bottom:18px}}
