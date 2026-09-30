@@ -1113,3 +1113,16 @@ html,body{max-width:100%;overflow-x:hidden}.brand img{width:150px;height:108px;o
 @media(max-width:850px){
   .barValue{font-size:8px;padding:2px 3px}
 }
+
+
+/* v0.14 - reserva espaço superior para valores/tooltip das maiores colunas */
+.liveChart{padding-top:30px}
+.barValue{z-index:8}
+.hoverValues .barSlot:hover .barValue{z-index:12}
+@media(max-width:850px){.liveChart{padding-top:24px}}
+
+/* v0.16 - forma do dinheiro junto ao valor em Movimentações */
+.movementCashIcon{display:inline-grid;place-items:center;width:23px;height:23px;margin-left:8px;border-radius:7px;vertical-align:middle;font-size:12px;font-weight:900;line-height:1}
+.movementCashIcon.note{background:#e8f4f3;color:#14786f}
+.movementCashIcon.coin{background:#fff1ce;color:#9a6500}
+@media(max-width:700px){.movementCashIcon{width:21px;height:21px;margin-left:5px;font-size:11px}}
