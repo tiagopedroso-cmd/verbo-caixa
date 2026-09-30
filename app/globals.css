@@ -873,3 +873,192 @@ html,body{max-width:100%;overflow-x:hidden}.brand img{width:150px;height:108px;o
 .chartScroll::-webkit-scrollbar-track{background:#f1f1f1;border-radius:10px}
 .chartScroll::-webkit-scrollbar-thumb{background:#c9c9c9;border-radius:10px}
 .chartScroll::-webkit-scrollbar-thumb:hover{background:#a9a9a9}
+
+/* ==========================================================
+   v0.9 — LOGIN FIEL À REFERÊNCIA DESKTOP + MOBILE
+   ========================================================== */
+.loginV09{
+  position:relative!important;
+  width:100vw!important;
+  min-height:100vh!important;
+  min-height:100dvh!important;
+  display:block!important;
+  overflow:hidden!important;
+  background:#240307 url('/login-bg-desktop.png?v=9') center center/cover no-repeat!important;
+}
+.loginV09Content{
+  position:absolute;
+  top:15.2%;
+  right:5.4%;
+  width:35.1%;
+  min-width:480px;
+  max-width:590px;
+  height:auto;
+}
+.loginV09Form{
+  width:100%;
+  min-height:650px;
+  padding:92px 72px 60px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  border:1px solid rgba(255,255,255,.20);
+  border-radius:22px;
+  background:rgba(28,9,10,.88);
+  box-shadow:0 22px 65px rgba(0,0,0,.28);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  color:#fff;
+}
+.loginV09Form h1{
+  margin:0 0 14px!important;
+  color:#fff!important;
+  font-size:42px!important;
+  line-height:1.05!important;
+  letter-spacing:-1px;
+  font-weight:800;
+}
+.loginV09Description{
+  margin:0 0 38px!important;
+  color:rgba(255,255,255,.88)!important;
+  font-size:20px!important;
+  line-height:1.38!important;
+}
+.loginV09Input{
+  width:100%;
+  height:72px;
+  display:flex;
+  align-items:center;
+  margin-bottom:18px;
+  overflow:hidden;
+  border-radius:12px;
+  background:#f6f8fb;
+  box-shadow:0 1px 0 rgba(255,255,255,.7) inset;
+}
+.loginV09Input>span{
+  width:70px;
+  height:100%;
+  flex:0 0 70px;
+  display:grid;
+  place-items:center;
+  border-right:1px solid #e5e7eb;
+  color:#858b92;
+  font-size:23px;
+}
+.loginV09Input input{
+  min-width:0;
+  flex:1;
+  height:100%;
+  border:0!important;
+  outline:0!important;
+  background:transparent!important;
+  padding:0 20px!important;
+  color:#171b25!important;
+  font-size:17px!important;
+  box-shadow:none!important;
+}
+.loginV09Eye{
+  width:58px;
+  height:100%;
+  flex:0 0 58px;
+  border:0;
+  background:transparent;
+  color:#7d838a;
+  font-size:23px;
+  cursor:pointer;
+}
+.loginV09Error{
+  margin:-5px 0 13px!important;
+  padding:10px 12px;
+  border-radius:8px;
+  background:rgba(255,235,238,.96);
+  color:#a50f22!important;
+  font-size:13px!important;
+}
+.loginV09Button{
+  width:100%;
+  min-height:72px;
+  margin-top:5px;
+  border:0;
+  border-radius:11px;
+  background:linear-gradient(90deg,#c90022,#ed002b);
+  color:#fff;
+  font-size:20px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(198,0,32,.22);
+}
+.loginV09Button:disabled{opacity:.7;cursor:not-allowed}
+.loginV09Forgot{
+  align-self:center;
+  margin-top:24px;
+  border:0;
+  background:transparent;
+  color:rgba(255,255,255,.9);
+  text-decoration:underline;
+  font-size:15px;
+  cursor:pointer;
+}
+
+@media(max-width:1100px) and (min-width:851px){
+  .loginV09Content{right:4%;width:39%;min-width:410px}
+  .loginV09Form{min-height:560px;padding:65px 48px 45px}
+  .loginV09Form h1{font-size:36px!important}
+  .loginV09Description{font-size:17px!important;margin-bottom:28px!important}
+  .loginV09Input,.loginV09Button{height:62px;min-height:62px}
+}
+
+@media(max-width:850px){
+  .loginV09{
+    min-height:100dvh!important;
+    overflow-y:auto!important;
+    background-image:url('/login-bg-mobile.png?v=9')!important;
+    background-position:center top!important;
+    background-size:cover!important;
+    background-attachment:scroll!important;
+  }
+  .loginV09Content{
+    position:relative;
+    top:auto;
+    right:auto;
+    width:min(77%,700px);
+    min-width:0;
+    max-width:none;
+    margin:48vh auto 15vh;
+  }
+  .loginV09Form{
+    min-height:0;
+    padding:48px 50px 34px;
+    border-radius:22px;
+    background:rgba(31,10,9,.86);
+  }
+  .loginV09Form h1{font-size:39px!important;margin-bottom:14px!important}
+  .loginV09Description{font-size:20px!important;margin-bottom:28px!important}
+  .loginV09Input{height:70px;margin-bottom:17px}
+  .loginV09Button{min-height:70px;font-size:19px}
+}
+
+@media(max-width:560px){
+  .loginV09Content{
+    width:82%;
+    margin-top:47vh;
+    margin-bottom:11vh;
+  }
+  .loginV09Form{padding:34px 24px 27px;border-radius:18px}
+  .loginV09Form h1{font-size:32px!important}
+  .loginV09Description{font-size:16px!important;line-height:1.42!important;margin-bottom:22px!important}
+  .loginV09Description br{display:none}
+  .loginV09Input{height:58px;margin-bottom:14px;border-radius:10px}
+  .loginV09Input>span{width:54px;flex-basis:54px;font-size:19px}
+  .loginV09Input input{padding:0 13px!important;font-size:14px!important}
+  .loginV09Eye{width:46px;flex-basis:46px;font-size:19px}
+  .loginV09Button{min-height:58px;font-size:17px}
+  .loginV09Forgot{margin-top:18px;font-size:13px}
+}
+
+@media(max-width:380px){
+  .loginV09Content{width:88%;margin-top:45vh}
+  .loginV09Form{padding:29px 19px 24px}
+  .loginV09Form h1{font-size:29px!important}
+  .loginV09Description{font-size:15px!important}
+}

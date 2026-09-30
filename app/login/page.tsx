@@ -6,7 +6,6 @@ import { createClient } from '@/lib/supabase-client';
 
 export default function Login() {
   const router = useRouter();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -15,169 +14,76 @@ export default function Login() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
     if (loading) return;
-
     setLoading(true);
     setError('');
 
-    const supabase = createClient();
-
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
+    const { error } = await createClient().auth.signInWithPassword({ email, password });
     if (error) {
       setError('E-mail ou senha inválidos.');
       setLoading(false);
       return;
     }
-
     router.replace('/dashboard');
     router.refresh();
   }
 
   return (
-    <main className="login">
-      <section className="loginbox">
-
-        {/* IMAGEM LATERAL */}
-        <div className="loginhero">
-          <img
-            src="/login-verbo-v2.jpg?v=2"
-            alt="Igreja Verbo da Vida"
-          />
-        </div>
-
-        {/* FORMULÁRIO */}
-        <form
-          className="loginform"
-          onSubmit={handleSubmit}
-        >
-          <span
-            className="accentLine"
-            aria-hidden="true"
-          />
-
+    <main className="login loginV09">
+      <section className="loginV09Content" aria-label="Acesso ao sistema de gestão de caixa">
+        <form className="loginV09Form" onSubmit={handleSubmit}>
           <h1>Bem-vindo</h1>
-
-          <p className="loginDescription">
-            Acesse sua conta para continuar
-            <br />
-            no sistema de gestão de caixa
-            <br />
+          <p className="loginV09Description">
+            Acesse sua conta para continuar<br />
+            no sistema de gestão de caixa<br />
             (em espécie) da Igreja Verbo da Vida.
           </p>
 
-          {/* E-MAIL */}
-          <div className="loginField">
-            <label htmlFor="email">
-              E-mail
-            </label>
-
-            <div className="loginInput">
-              <span
-                className="loginInputIcon"
-                aria-hidden="true"
-              >
-                ✉
-              </span>
-
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                placeholder="seu@email.com"
-                value={email}
-                onChange={(e) =>
-                  setEmail(e.target.value)
-                }
-                required
-              />
-            </div>
+          <div className="loginV09Input">
+            <span aria-hidden="true">✉</span>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              placeholder="seu@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              aria-label="E-mail"
+            />
           </div>
 
-          {/* SENHA */}
-          <div className="loginField">
-            <label htmlFor="password">
-              Senha
-            </label>
-
-            <div className="loginInput">
-              <span
-                className="loginInputIcon"
-                aria-hidden="true"
-              >
-                ♙
-              </span>
-
-              <input
-                id="password"
-                name="password"
-                type={
-                  showPassword
-                    ? 'text'
-                    : 'password'
-                }
-                autoComplete="current-password"
-                placeholder="••••••••••••"
-                value={password}
-                onChange={(e) =>
-                  setPassword(e.target.value)
-                }
-                required
-              />
-
-              <button
-                type="button"
-                className="passwordToggle"
-                onClick={() =>
-                  setShowPassword(
-                    (current) => !current
-                  )
-                }
-                aria-label={
-                  showPassword
-                    ? 'Ocultar senha'
-                    : 'Mostrar senha'
-                }
-              >
-                {showPassword ? '◉' : '◎'}
-              </button>
-            </div>
-          </div>
-
-          {/* ERRO */}
-          {error && (
-            <p
-              className="loginError"
-              role="alert"
+          <div className="loginV09Input">
+            <span aria-hidden="true">▣</span>
+            <input
+              id="password"
+              name="password"
+              type={showPassword ? 'text' : 'password'}
+              autoComplete="current-password"
+              placeholder="••••••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              aria-label="Senha"
+            />
+            <button
+              type="button"
+              className="loginV09Eye"
+              onClick={() => setShowPassword((v) => !v)}
+              aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
             >
-              {error}
-            </p>
-          )}
+              {showPassword ? '◉' : '◎'}
+            </button>
+          </div>
 
-          {/* ENTRAR */}
-          <button
-            type="submit"
-            disabled={loading}
-            className="loginBtn"
-          >
-            {loading
-              ? 'Entrando...'
-              : 'Entrar  →'}
+          {error && <p className="loginV09Error" role="alert">{error}</p>}
+
+          <button type="submit" disabled={loading} className="loginV09Button">
+            {loading ? 'Entrando...' : 'Entrar  →'}
           </button>
 
-          {/* RECUPERAR SENHA */}
-          <button
-            type="button"
-            className="forgot"
-          >
-            Esqueceu sua senha?
-          </button>
-
+          <button type="button" className="loginV09Forgot">Esqueceu sua senha?</button>
         </form>
       </section>
     </main>
