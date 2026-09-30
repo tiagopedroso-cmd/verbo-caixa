@@ -1081,3 +1081,35 @@ html,body{max-width:100%;overflow-x:hidden}.brand img{width:150px;height:108px;o
 
 /* v0.12 - Notas e moedas com ilustracoes */
 .cashKinds{display:grid;grid-template-columns:1fr 1fr;gap:14px}.cashKind{position:relative;min-height:126px;display:flex;align-items:center;gap:16px;text-align:left;padding:18px;border:1px solid #e5dddd;border-radius:14px;background:#fff;color:#2b2525;cursor:pointer;transition:.18s ease}.cashKind:hover{transform:translateY(-1px);border-color:#c7b7b7;box-shadow:0 8px 22px rgba(44,17,17,.06)}.cashKind.selected{border:2px solid #8e1628;background:linear-gradient(135deg,#fff,#fff8f8);box-shadow:0 0 0 3px rgba(142,22,40,.07)}.cashKind>div b,.cashKind>div small{display:block}.cashKind>div b{font-size:18px}.cashKind>div small{margin-top:4px;color:#7a7070}.cashRadio{position:absolute;right:14px;top:14px;width:18px;height:18px;border:2px solid #b7aaaa;border-radius:50%}.cashKind.selected .cashRadio{border:5px solid #8e1628}.cashArt{position:relative;display:block;flex:0 0 92px;width:92px;height:66px}.noteArt i{position:absolute;left:7px;width:76px;height:42px;border:2px solid #267f77;border-radius:6px;background:linear-gradient(135deg,#d8f0ea,#78c7bd);box-shadow:0 5px 10px rgba(20,70,65,.16)}.noteArt i:nth-child(1){top:18px;transform:rotate(-7deg)}.noteArt i:nth-child(2){top:11px;left:10px;transform:rotate(-2deg)}.noteArt i:nth-child(3){top:5px;left:13px;transform:rotate(5deg)}.noteArt:after{content:'R$';position:absolute;z-index:3;left:39px;top:19px;font-weight:900;font-size:16px;color:#176c65;transform:rotate(4deg)}.coinArt i{position:absolute;width:37px;height:37px;border-radius:50%;border:3px solid #a66b12;background:radial-gradient(circle at 38% 32%,#fff1a8 0 13%,#e6b84c 15% 45%,#b77716 48% 54%,#f0c85f 57%);box-shadow:0 5px 8px rgba(91,55,6,.2)}.coinArt i:after{content:'R$';position:absolute;inset:0;display:grid;place-items:center;font-size:10px;font-weight:900;color:#85530b}.coinArt i:nth-child(1){left:4px;top:24px}.coinArt i:nth-child(2){left:28px;top:8px}.coinArt i:nth-child(3){left:51px;top:25px}.coinArt i:nth-child(4){left:31px;top:30px}.cashBalance{display:flex;align-items:center;gap:14px;padding:18px}.cashBalance .cashArt{transform:scale(.72);transform-origin:center;flex-basis:70px;margin:-8px}.cashBalance>div small,.cashBalance>div span{display:block}.cashBalance>div small{font-weight:800;color:#786c6c}.cashBalance>div b{display:block;font-size:23px;margin:3px 0}.cashBalance>div span{font-size:12px;color:#817575}.noteBalance{background:linear-gradient(135deg,#fff,#f1f8f8)}.coinBalance{background:linear-gradient(135deg,#fff,#fff8e9)}.cashBadge{display:inline-flex;margin-left:5px;padding:3px 7px;border-radius:999px;font-size:10px;font-style:normal;font-weight:800;vertical-align:middle}.cashBadge.note{background:#eaf5f4;color:#246d67}.cashBadge.coin{background:#fff0cc;color:#8b5d0a}@media(max-width:760px){.cashKinds{grid-template-columns:1fr}.cashKind{min-height:108px}.cashArt{transform:scale(.85);transform-origin:left center}.cashBalance{grid-column:1/-1}}
+
+/* v0.13 - dashboard desktop organizado + valores nas barras */
+@media(min-width:1151px){
+  .dashStats{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
+  .dashStats>.statCard:nth-child(1){grid-column:1;grid-row:1}
+  .dashStats>.statCard:nth-child(2){grid-column:2;grid-row:1}
+  .dashStats>.statCard:nth-child(3){grid-column:3;grid-row:1}
+  .dashStats>.noteBalance{grid-column:1;grid-row:2}
+  .dashStats>.coinBalance{grid-column:2;grid-row:2}
+  .dashStats>.dashQuick{grid-column:3;grid-row:2;grid-template-columns:1fr;grid-template-rows:1fr 1fr}
+  .dashStats>.cashBalance{min-height:98px}
+  .dashStats>.dashQuick .dateBox,.dashStats>.dashQuick .dashBtn{min-height:43px}
+}
+
+/* Cada barra passa a ter seu próprio espaço para o rótulo ficar acima dela. */
+.bars{overflow:visible;gap:7px}
+.barSlot{position:relative;height:100%;width:min(24px,44%);display:flex;align-items:flex-end;justify-content:center;overflow:visible}
+.barSlot>i{display:block;width:100%;border-radius:4px 4px 0 0;min-height:3px;cursor:pointer}
+.barValue{position:absolute;left:50%;bottom:calc(var(--bar-height, 0%) + 6px);transform:translateX(-50%);z-index:3;white-space:nowrap;padding:2px 4px;border-radius:4px;background:rgba(255,255,255,.94);box-shadow:0 1px 4px rgba(0,0,0,.08);font-size:9px;font-weight:800;line-height:1.15;pointer-events:none}
+.inValue{color:#13874d}.outValue{color:#c83232}
+.barValue.stagger{transform:translate(-50%,-14px)}
+.hoverValues .barValue{opacity:0;visibility:hidden;transition:.15s ease}
+.hoverValues .barSlot:hover .barValue{opacity:1;visibility:visible}
+.showValues .barValue{opacity:1;visibility:visible}
+
+/* Posiciona o valor pela altura real da barra sem interferir na responsividade. */
+.barSlot:has(.inBar) .barValue{bottom:calc(var(--in-pct, 0%) + 6px)}
+.barSlot:has(.outBar) .barValue{bottom:calc(var(--out-pct, 0%) + 6px)}
+
+@media(max-width:850px){
+  .barValue{font-size:8px;padding:2px 3px}
+}
