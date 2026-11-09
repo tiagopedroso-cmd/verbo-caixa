@@ -1126,3 +1126,6 @@ html,body{max-width:100%;overflow-x:hidden}.brand img{width:150px;height:108px;o
 .movementCashIcon.note{background:#e8f4f3;color:#14786f}
 .movementCashIcon.coin{background:#fff1ce;color:#9a6500}
 @media(max-width:700px){.movementCashIcon{width:21px;height:21px;margin-left:5px;font-size:11px}}
+
+/* v0.17 */
+.mixedCashKinds{align-items:stretch}.mixedCashKind{cursor:default;align-items:flex-start;min-width:0}.mixedCashField{flex:1;min-width:0}.mixedCashField .moneyInput{margin-top:10px}.mixedCashField .moneyInput input{min-width:0;width:100%}.mixedHelp{margin:4px 0 12px;color:#6b7280;font-size:13px}.mixedTotal{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;padding:14px 16px;background:#f7f7f8;border:1px solid #e7e7e9;border-radius:12px}.mixedTotal span{font-weight:600;color:#6b7280}.mixedTotal strong{font-size:23px;color:#252525}.movementCashIcon.mixed,.cashBadge.mixed{background:#f1e9fb;color:#7043a6}.movementCashIcon.mixed{width:auto;padding:0 7px;white-space:nowrap}.mixedBreakdown{display:block;margin-top:5px;color:#667085;font-size:12px}@media(max-width:650px){.mixedCashKinds{grid-template-columns:1fr}.mixedTotal strong{font-size:19px}}
